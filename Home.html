@@ -11,42 +11,27 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css"
     />
     <link rel="stylesheet" href="Home-style.css" />
-    <script src="script.js" defer></script>
     <title>Portfolio-v2</title>
   </head>
   <body>
-    <header class="primary-header flex">
-      <p>Resume</p>
-      <button
-        class="mobile-nav-toggle"
-        id="nav-toggle"
-        aria-controls="primary-navigation"
-        aria-expanded="false"
-      >
-        <span class="sr-only">Menu</span>
-      </button>
-
-      <nav>
-        <ul
-          class="primary-navigation flex"
-          id="primary-navigation"
-          data-visible="false"
-        >
-          <li class="me-5">
-            <a href="#Skills">Skills</a>
-          </li>
-          <li class="me-5">
-            <a href="#Experience">Experience</a>
-          </li>
-          <li class="me-5">
-            <a href="https://hashnode.com/@Rajdeepds">Blogs</a>
-          </li>
-          <li>
-            <a href="./Contact.html">Contact</a>
-          </li>
-        </ul>
-      </nav>
-    </header>
+    <nav>
+      <div class="container">
+        Resume
+        <!-- <a class="hamburger-menu" href="">
+          <i class="bi bi-list"></i>
+        </a> -->
+        <div class="header-navigation">
+          <ul class="navigation">
+            <a href="#Skills"><li class="me-5">Skills</li></a>
+            <a href="#Experience"><li class="me-5">Experience</li></a>
+            <a href="https://hashnode.com/@Rajdeepds"
+              ><li class="me-5">Blogs</li></a
+            >
+            <a href="./Contact.html"><li>Contact</li></a>
+          </ul>
+        </div>
+      </div>
+    </nav>
     <div class="FirstPage">
       <div class="display-1">Rajdeep Das</div>
       <div class="para">Software Developer</div>
@@ -77,6 +62,7 @@
       </div>
       <div class="column-2">
         <div class="display-3">About Me</div>
+
         <div class="para2">
           I'm a junior from India, an open source enthusiast, a learner. I'm
           passionate about software development & innovation.
@@ -141,7 +127,6 @@
               <p id="TechName">CSS3</p>
             </li>
           </ul>
-
           <ul class="secondrow pt-5 pt-5">
             <li class="px-5">
               <a href="https://www.w3schools.com/js/default.asp">
@@ -171,7 +156,6 @@
         </div>
       </div>
     </div>
-
     <div class="FourthPage">
       <div class="display-3">Academics</div>
       <p id="course">Bsc Computer Science</p>
@@ -181,10 +165,9 @@
       <p id="institute">Pearls Of God</p>
       <p id="year">2021</p>
     </div>
-
     <div class="Experience" id="Experience">
       <div class="display-3">Experience</div>
-      <div class="Exp">
+      <div class="container Exp">
         <p id="Heading">
           <a href="https://hacktoberfest.digitalocean.com/" id="Heading"
             >Hacktoberfest</a
@@ -198,7 +181,7 @@
       </div>
     </div>
     <div class="container-fluid footer">
-      <div class="first pt-5">
+      <div class="container first pt-5">
         <div id="Name-Box" class="px-1">Rajdeep Das</div>
         <div class="navigation">
           <ul class="footer-nav">
@@ -210,8 +193,8 @@
           </ul>
         </div>
       </div>
-      <div class="horizontal-line"></div>
-      <div class="captions pt-3">
+      <div class="container horizontal-line"></div>
+      <div class="container captions pt-3">
         <div>Living, learning & Leveling up one day at a time</div>
         <div>&copy; Rajdeep Das , made with love</div>
       </div>

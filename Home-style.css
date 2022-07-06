@@ -1,6 +1,7 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css");
-
+/* -------------------------------------------- */
 /* Fonts */
+/* -------------------------------------------- */
 @font-face {
   font-family: "Nunito-Regular";
   src: url(./Assets/fonts/Nunito-Font/Nunito-Regular.ttf);
@@ -43,6 +44,7 @@
 }
 /* -------------------------------------- */
 /* Colors */
+/* -------------------------------------------- */
 :root {
   --boldLetter: #1c0732;
   --lightLetter: #696f8c;
@@ -68,51 +70,126 @@
   border-radius: 10px;
 }
 /* -------------------------------------------- */
+/* Global CSS */
+/* -------------------------------------------- */
+html {
+  scroll-behavior: smooth;
+}
+body {
+  overflow-x: hidden;
+}
+.sr-only {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.flex {
+  display: flex;
+  gap: var(--gap, 1rem);
+}
+
 i {
   color: var(--iconButton);
 }
-.container {
-  display: flex;
+/* -------------------------------------------- */
+/* Header Navigation */
+/* -------------------------------------------- */
+.primary-header {
+  margin: 0 4rem;
+  align-items: center;
   justify-content: space-between;
-  text-align: center;
-  color: var(--lightLetter);
-  align-items: center;
   font-family: Nunito-Regular;
-  font-size: 23px;
-  margin-top: 10px;
+  color: var(--lightLetter);
+  font-size: 20px;
 }
-.hamburger-menu i {
-  font-size: 3rem;
-  color: var(--iconButton);
+.primary-header p {
+  margin-top: 1rem;
 }
-.header-navigation .navigation {
-  display: flex;
+.mobile-nav-toggle {
+  display: none;
+}
+.primary-navigation {
   list-style: none;
-  text-align: center;
-  align-items: center;
-  margin-bottom: 0;
+  padding: 0%;
+  margin: 0;
 }
-.navigation a {
+.primary-navigation a {
   text-decoration: none;
   color: var(--lightLetter);
 }
-.header-navigation li:hover {
-  color: var(--iconButton);
-  text-shadow: 0px 5px 20px rgba(92, 68, 186, 0.658);
+@media (max-width: 576px) {
+  .primary-header {
+    margin: 0 0.5rem;
+  }
+  .primary-navigation {
+    --gap: 2em;
+    z-index: 1000;
+    position: fixed;
+    inset: 0 0 0 30%;
+    flex-direction: column;
+    text-align: start;
+    padding: min(30vh, 10rem) 2em;
+    background: hsl(0 0% 100% / 0.1);
+    backdrop-filter: blur(1rem);
+    transform: translateX(100%);
+    transition: transform 300ms ease-in;
+    border-right: 31px #1c0732;
+  }
+  .primary-navigation a {
+    color: var(--iconButton);
+  }
+  #nav-toggle.active {
+    background-image: url(./Assets/Icons/x.svg);
+  }
+  #primary-navigation.active {
+    transform: translateX(0%);
+  }
+  .mobile-nav-toggle {
+    display: block;
+    position: absolute;
+    z-index: 2000;
+    right: 0.5rem;
+    background: transparent;
+    background-image: url(./Assets/Icons/list.svg);
+    background-repeat: no-repeat;
+    filter: invert(26%) sepia(19%) saturate(6905%) hue-rotate(238deg)
+      brightness(90%) contrast(87%);
+    background-size: 1.5rem;
+    background-position: center;
+    width: 1.5rem;
+    aspect-ratio: 1;
+    border: 0;
+    padding: 0;
+  }
+  .primary-navigation a {
+    font-family: Butler-Bold;
+    font-size: 36px;
+    color: var(--boldLetter);
+    text-shadow: 0px 5px 20px rgba(92, 68, 186, 0.658);
+  }
+  .FirstPage {
+    margin-top: 5rem;
+  }
 }
-.bar {
-  max-width: 70px;
-}
+/* -------------------------------------------- */
+/* First Page */
+/* -------------------------------------------- */
 .FirstPage {
   margin-top: 8.5rem;
-  /* display: flex; */
+  display: flex;
   justify-content: center;
+  flex-direction: column;
 }
 .display-1 {
-  font-size: 96px;
+  font-size: 4rem;
   font-family: Butler-Medium;
   color: var(--boldLetter);
   text-align: center;
+  align-items: center;
 }
 .para {
   margin: 1rem auto;
@@ -126,7 +203,7 @@ i {
   background-color: #ffffff;
   color: var(--iconButton);
   border-radius: 7px;
-  border-width: 1px;
+  border-width: 2px;
   border-color: var(--iconButton);
   font-family: Nunito-ExtraLight;
   font-size: 24px;
@@ -138,6 +215,14 @@ i {
   display: flex;
   justify-content: center;
 }
+.FirstPage .button1:hover {
+  background-color: #858cdd;
+  color: #ffffff;
+}
+/* -------------------------------------------- */
+/* Second Page */
+/* -------------------------------------------- */
+
 .SecondPage {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -180,7 +265,7 @@ i {
   font-size: 20px;
   color: #ffffff;
   text-align: center;
-  /* margin-right: 14px; */
+  margin-right: 14px;
   box-shadow: 0px 5px 20px rgba(91, 68, 186, 0.35);
   background: linear-gradient(
     145deg,
@@ -199,6 +284,59 @@ i {
 .SocialLinks i {
   font-size: 43px;
 }
+@media (max-width: 576px) {
+  .SecondPage {
+    display: block;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    margin: 5rem 0;
+    padding: 0px;
+  }
+  .SecondPage .column-1 {
+    text-align: center;
+    align-items: center;
+    margin-right: 0px;
+  }
+  .SecondPage .rounded-circle {
+    max-width: 80vw;
+    justify-content: center;
+    align-items: center;
+  }
+  .SecondPage .column-2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+  }
+  .SecondPage .display-3 {
+    margin-top: 2rem;
+    font-family: Butler-Regular;
+    font-size: 64px;
+    color: var(--boldLetter);
+    text-align: center;
+  }
+  .SecondPage .para2 {
+    font-family: Nunito-Light;
+    font-size: 23px;
+    color: var(--lightLetter);
+    max-width: 370px;
+    text-align: center;
+  }
+  .SecondPage .button1 {
+    display: none;
+  }
+  .home-links {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+/* -------------------------------------------- */
+/* Third Page */
+/* -------------------------------------------- */
+
 .ThirdPage .display-3 {
   font-family: Butler-Regular;
   font-size: 64px;
@@ -277,6 +415,42 @@ i {
   padding-right: 5rem !important;
   padding-left: 5rem !important;
 }
+@media (max-width: 576px) {
+  .Skills {
+    flex-direction: column;
+    align-items: center;
+  }
+  .Skills div {
+    margin-bottom: 1rem;
+  }
+  .Skills .me-4 {
+    margin-right: 0 !important;
+  }
+  .technology {
+    display: flex;
+    justify-content: center;
+  }
+  .technology li {
+    margin-bottom: 0.5rem;
+  }
+  .firstrow,
+  .secondrow {
+    flex-direction: column;
+  }
+
+  .firstrow .px-5,
+  .secondrow .px-5 {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+  }
+  .firstrow .px-5 {
+    padding-right: 3rem !important;
+  }
+}
+/* -------------------------------------------- */
+/* Fourth Page */
+/* -------------------------------------------- */
+
 .FourthPage {
   margin-top: 205px;
 }
@@ -331,6 +505,7 @@ i {
 }
 .Exp {
   display: block;
+  margin: 0 4rem;
 }
 #ExpYear {
   margin-bottom: 0;
@@ -349,6 +524,29 @@ i {
   display: flex;
   justify-content: flex-start;
 }
+@media (max-width: 576px) {
+  .FourthPage {
+    margin-top: 90px;
+  }
+  .Experience {
+    margin-top: 90px;
+  }
+  .Experience .Exp {
+    flex-direction: column;
+  }
+  .Exp #Heading {
+    margin-top: 2rem;
+    justify-content: center;
+  }
+  .Exp #ExpYear,
+  #ExpDesc {
+    justify-content: center;
+    text-align: center;
+  }
+}
+/* -------------------------------------------- */
+/* Footer Page */
+/* -------------------------------------------- */
 .footer {
   background-color: var(--boldLetter);
   max-height: 470px;
@@ -385,9 +583,11 @@ i {
 .footer .first {
   display: flex;
   align-items: center;
+  margin: 0 3rem;
+  justify-content: space-between;
 }
 .navigation a:hover {
-  /* color: #ced1f5; */
+  color: #ced1f5;
   text-shadow: 0px 0px 10px #858cdd;
 }
 .horizontal-line {
@@ -403,117 +603,12 @@ i {
   font-family: Nunito-Light;
   font-size: 20px;
   color: #696fad;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 3rem;
+  padding-bottom: 1rem;
 }
-/* ---------------------------------------------- */
-/* Media Screens */
-
-@media screen and (max-width: 576px) {
-  .header-navigation .navigation {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    text-align: center;
-    align-items: start;
-    margin-bottom: 0;
-  }
-  .header-navigation a {
-    text-decoration: none;
-    color: var(--lightLetter);
-    margin-right: 0%;
-  }
-  .header-navigation .me-5 {
-    margin-right: 0.5rem !important;
-  }
-  .header-navigation li:hover {
-    color: var(--iconButton);
-    text-shadow: 0px 5px 20px rgba(92, 68, 186, 0.658);
-  }
-  .container {
-    display: flex;
-    justify-content: space-between;
-    text-align: center;
-    color: var(--lightLetter);
-    align-items: center;
-    font-family: Nunito-Regular;
-    font-size: 20px;
-  }
-  i {
-    font-size: 50px;
-  }
-  .FirstPage {
-    margin-top: 3rem;
-    /* display: flex; */
-    justify-content: center;
-  }
-  .SecondPage {
-    display: block;
-    justify-content: space-around;
-    align-items: center;
-    text-align: center;
-    margin: 5rem 0;
-    padding: 0px;
-  }
-  .SecondPage .column-1 {
-    text-align: center;
-    align-items: center;
-    margin-right: 0px;
-  }
-  .SecondPage .rounded-circle {
-    max-width: 80vw;
-    justify-content: center;
-    align-items: center;
-  }
-  .SecondPage .column-2 {
-    text-align: center;
-  }
-  .SecondPage .display-3 {
-    margin-top: 2rem;
-    font-family: Butler-Regular;
-    font-size: 64px;
-    color: var(--boldLetter);
-    text-align: center;
-  }
-  .SecondPage .para2 {
-    font-family: Nunito-Light;
-    font-size: 24px;
-    color: var(--lightLetter);
-    max-width: 461px;
-    text-align: center;
-  }
-  .home-links {
-    display: flex;
-    justify-content: center;
-  }
-  .Skills {
-    flex-direction: column;
-    align-items: center;
-  }
-  .Skills div {
-    margin-bottom: 1rem;
-  }
-  .technology {
-    display: flex;
-    justify-content: center;
-  }
-  .technology li {
-    margin-bottom: 0.5rem;
-  }
-  .firstrow,
-  .secondrow {
-    flex-direction: column;
-  }
-  .FourthPage {
-    margin-top: 90px;
-  }
-  .Experience {
-    margin-top: 90px;
-  }
-  .Experience .Exp {
-    flex-direction: column;
-  }
-  .Exp #Heading {
-    margin-top: 2rem;
-  }
+@media (max-width: 576px) {
   .first {
     display: flex;
     flex-direction: column;
@@ -523,6 +618,7 @@ i {
     display: flex;
     justify-items: center;
     color: #ffffff;
+    padding: 0;
   }
   .horizontal-line {
     margin-top: 1rem;
@@ -530,10 +626,11 @@ i {
     display: flex;
     justify-items: center;
     background: #ffffff;
-    transform: matrix(1, 0, 1, 1, 1, 1);
+    transform: matrix(1, 0, 0, 1, 1, 1);
   }
   .captions {
     display: flex;
     flex-direction: column;
   }
 }
+/* ---------------------------------------------- */
